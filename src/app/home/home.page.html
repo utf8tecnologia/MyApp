@@ -9,12 +9,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <button ion-button (click)="abrir()" full color="dark">Abrir Navegador</button>
-
-
-  <p>Vamos bater uma foto:</p>
-  <ion-button (click)="baterFoto()">bater uma foto</ion-button>
-  <img *ngFor="let photo of photos">
-  <img src="{{photo}}" style="width:200px"/>
+<ion-content>  
+  <ion-list>    
+    <ion-item *ngFor="let img of images, index as i">      
+     <ion-thumbnail slot="start">        
+      <img src="{{ img.img }}">      
+     </ion-thumbnail>      
+     <ion-label>{{ 'image_' +(i+1) }}</ion-label>    
+    </ion-item>  
+   </ion-list>
 </ion-content>
